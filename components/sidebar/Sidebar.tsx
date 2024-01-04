@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MenuLink from "../menuLink/menuLink";
+import MenuLink from "../menuLink/MenuLink";
 import styles from "./sidebar.module.css"
 
 import { MdDashboard, MdSupervisedUserCircle, MdShoppingBag, MdAttachMoney, MdWork, MdAnalytics, MdPeople, MdOutlineSettings, MdHelpCenter, MdLogout } from "react-icons/md";
@@ -79,16 +79,19 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <ul>
+      <ul className={styles.list}>
         {menuItems.map(category => (
           <li key={category.title}>
-            <span>{category.title}</span>
+            <span className={styles.category}>{category.title}</span>
             {category.list.map(item => (
               <MenuLink key={item.title} item={item} />
             ))}
           </li>
         ))}
       </ul>
+      <button className={styles.logout}>
+        <MdLogout /> Logout
+      </button>
     </div>
   )
 }

@@ -1,3 +1,9 @@
+"use client"
+
+import { usePathname } from "next/navigation";
+import styles from "./menuLink.module.css";
+import Link from "next/link";
+
 interface MenuLinkProps {
     item: {
         icon: JSX.Element;
@@ -7,9 +13,14 @@ interface MenuLinkProps {
 }
 
 const MenuLink = ({item}: MenuLinkProps) => {
-  return (
-    <div>MenuLink</div>
-  )
+
+    const pathname = usePathname();
+
+    return (
+    <Link href={item.path} className={`${styles.container} ${pathname === item.path && styles.active}`}>
+        {item.icon} {item.title}
+    </Link>
+    )
 }
 
 export default MenuLink
