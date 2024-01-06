@@ -20,6 +20,10 @@
     border: 2px solid var(--bgSecondary);
 }
 
+.form option {
+    background-color: var(--bgSoft); 
+}
+
 .form input, .form select {
     width: 45%;
 }
